@@ -452,9 +452,10 @@ int main(void)
     tndlpt_debug();
   }
 
-  if (!tndlpt_init(false)) {
-    cputs("Error: TNDLPT is not responding\r\n");
-    return 1;
+  if (!tndlpt_init(true)) {
+    cputs("Warning: TNDLPT is not responding\r\n");
+    cputs("         still we want to pretend it is there, so we can blink the LEDs on the port by game and music .\r\n");
+    //return 1;
   }
 
   /* check_jemm(config.bios_id); */
